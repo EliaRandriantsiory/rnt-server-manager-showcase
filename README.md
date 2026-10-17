@@ -1,77 +1,105 @@
-# RNT Server Manager — Administration Linux depuis le navigateur
+# RNT Server Manager — Gérer son serveur et son parc informatique au même endroit
 
-> Une interface web pour superviser un serveur, gérer les partages réseau et suivre un parc informatique.
+**En bref :** un projet d’interface web qui rassemble des informations utiles sur un serveur, les services qu’il utilise et les équipements informatiques d’une organisation.
 
-**Domaines :** Backend Python · Administration Linux · Supervision · Application web
+[English version below](#english-version)
 
-## Le besoin
+## Le projet
 
-L'administration quotidienne d'un serveur implique plusieurs outils : commandes système, configuration des partages, consultation des journaux et suivi du matériel. Ces opérations sont difficiles à réaliser pour des utilisateurs peu familiers du terminal.
+Le suivi d’un serveur et d’un parc informatique peut demander de consulter plusieurs outils différents. RNT Server Manager présente une façon de regrouper ces informations dans une interface web afin de faciliter les vérifications courantes.
 
-RNT Server Manager regroupe ces tâches dans une interface web destinée à un environnement administré.
+## Quels besoins cela aide-t-il à couvrir ?
 
-## Périmètre de réalisation
+- Consulter l’état général d’un serveur.
+- Repérer les services qui fonctionnent ou qui nécessitent une vérification.
+- Retrouver des informations sur les équipements informatiques.
+- Organiser les partages de fichiers et les accès associés.
+- Consulter les messages d’activité pour comprendre ce qui s’est passé.
 
-- API backend intégrant des services Linux.
-- Interface React pour les opérations courantes.
-- Flux en temps réel pour la supervision et les journaux.
-- Inventaire des équipements et gestion des accès applicatifs.
+## Exemples de fonctions présentées
 
-## Fonctionnalités
-
-| Module | Capacités |
+| Besoin | Ce que l’interface présente |
 |---|---|
-| Tableau de bord | Suivi CPU, mémoire, disque, réseau et durée de fonctionnement |
-| Partages Samba | Création, modification et suppression de partages ; droits de lecture et d'écriture |
-| Utilisateurs | Gestion des comptes Linux et Samba, mots de passe et groupes |
-| Services | Consultation de l'état, démarrage, arrêt et redémarrage des services autorisés |
-| Journaux | Consultation, recherche, filtrage et suivi des logs en direct |
-| Parc informatique | Inventaire, affectations, garanties et suivi de l'état des équipements |
+| Suivre le serveur | Des indicateurs sur l’utilisation du processeur, de la mémoire, du stockage et du réseau |
+| Vérifier les services | L’état des services et certaines actions d’administration autorisées |
+| Gérer les fichiers partagés | Des options pour organiser les dossiers partagés et leurs droits d’accès |
+| Retrouver les informations | Des journaux d’activité consultables et filtrables |
+| Suivre le matériel | Un inventaire des équipements, de leur affectation, de leur garantie et de leur état |
 
-## Exemple de parcours
+Les actions disponibles dépendent des autorisations et de la configuration de l’environnement dans lequel l’application est installée.
 
-Un gestionnaire consulte la charge du serveur, recherche un équipement dans l'inventaire, puis vérifie l'état d'un service. Si une intervention est nécessaire, il consulte les journaux correspondants et utilise les actions disponibles dans l'interface.
+## Exemple d’utilisation
 
-Ce parcours illustre les fonctions de l'application, sans exposer d'équipement ni d'environnement réel.
+Un responsable informatique peut consulter l’état du serveur, rechercher un ordinateur dans l’inventaire, puis examiner les informations d’activité si un problème est signalé. L’objectif est de réunir ces vérifications dans un espace commun.
 
-## Architecture technique
+## À qui ce projet peut-il être utile ?
 
-| Couche | Technologies |
-|---|---|
-| Frontend | React 18, Vite |
-| API | Python, FastAPI |
-| Persistance | SQLAlchemy, SQLite |
-| Authentification | JWT, bcrypt |
-| Temps réel | WebSocket |
-| Intégration système | systemd, journald, Samba |
-| Environnement | Ubuntu Linux |
+- Aux petites organisations qui veulent mieux suivre leurs équipements.
+- Aux responsables informatiques qui réalisent régulièrement des vérifications.
+- Aux équipes qui souhaitent retrouver plus facilement les informations sur leur serveur et leur matériel.
 
-L'interface communique avec l'API pour les opérations courantes et reçoit les métriques et journaux via WebSocket. Le backend relie les fonctions applicatives aux services du système.
+## Ce que ce projet illustre
 
-## Points d'ingénierie
+Ce projet montre comment présenter des informations de suivi et certaines opérations d’administration dans une interface unique. Les opérations sensibles doivent rester limitées aux personnes autorisées et être configurées avec soin.
 
-- **Temps réel :** actualiser les métriques et les logs sans recharger les pages.
-- **Intégration Linux :** convertir les opérations système en actions compréhensibles dans l'interface.
-- **Encadrement des actions :** limiter les services pilotables et demander confirmation pour les opérations concernées.
-- **Gestion de parc :** structurer les équipements par type, site et état.
-- **Maintenance :** prévoir une installation scriptée et une gestion par systemd.
+## État du projet
 
-Les mécanismes d'authentification et de limitation des actions font partie de la conception documentée ; cette présentation ne revendique pas un audit de sécurité indépendant.
-
-## Ce que ce projet démontre
-
-Un travail à la jonction du développement applicatif et de l'infrastructure : API Python, interface React, communication en temps réel, persistance des données et intégration des outils Linux.
-
-L'apport principal est de réunir supervision, administration et inventaire dans une même interface.
+Ce dépôt est une **présentation de portfolio**. Il ne contient pas l’application complète ni la configuration d’un serveur réel. Il ne doit pas être installé sur un serveur de production sans préparation et vérifications adaptées.
 
 ## À propos
 
 Projet présenté par [Elia Randriantsiory](https://github.com/EliaRandriantsiory).
 
-Ce dépôt est une **présentation de portfolio**. Il ne contient pas le code source de l'application, ni de données métier, de configuration de production ou d'identifiants. Les technologies tierces restent la propriété de leurs auteurs respectifs.
+---
 
-### Autres réalisations
+## English version
 
-- [Odoo ERP — Personnalisation métier](https://github.com/EliaRandriantsiory/odoo-erp-showcase)
-- [RNT Server Manager — Administration Linux](https://github.com/EliaRandriantsiory/rnt-server-manager-showcase)
-- [Fanavotana — Plateforme communautaire](https://github.com/EliaRandriantsiory/fanavotana-showcase)
+# RNT Server Manager — Manage servers and IT equipment in one place
+
+**In brief:** a web interface concept that brings together useful information about a server, its services, and an organization's IT equipment.
+
+## About the project
+
+Keeping track of a server and IT equipment can involve several different tools. RNT Server Manager shows how this information can be brought together in a web interface to make routine checks easier.
+
+## Which needs can it help address?
+
+- Check the general condition of a server.
+- Identify services that are running or may need attention.
+- Find information about IT equipment.
+- Organize shared folders and related access rights.
+- Review activity messages to understand what happened.
+
+## Examples of the functions presented
+
+| Need | What the interface demonstrates |
+|---|---|
+| Monitor a server | Indicators for processor, memory, storage, and network usage |
+| Check services | Service status and selected permitted administration actions |
+| Manage shared files | Options for organizing shared folders and access rights |
+| Find information | Activity records that can be viewed and filtered |
+| Track equipment | An inventory with equipment assignments, warranties, and condition |
+
+Available actions depend on permissions and on how the application is configured in its environment.
+
+## Example use
+
+An IT manager can check the server's condition, find a computer in the inventory, and review activity information when an issue is reported. The goal is to bring these checks together in one place.
+
+## Who may find this project useful?
+
+- Small organizations that want to keep better track of their equipment.
+- IT managers who perform regular checks.
+- Teams that need easier access to server and equipment information.
+
+## What this project demonstrates
+
+It shows how monitoring information and selected administration tasks can be presented through one interface. Sensitive operations should remain restricted to authorized people and be configured carefully.
+
+## Project status
+
+This repository is a **portfolio presentation**. It does not contain the complete application or the configuration of a real server. It should not be installed on a production server without appropriate preparation and checks.
+
+## About
+
+Presented by [Elia Randriantsiory](https://github.com/EliaRandriantsiory).
